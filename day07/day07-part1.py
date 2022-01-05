@@ -16,6 +16,9 @@ with open(sys.argv[1]) as f:
         total += value
         number_of_values += 1
 
+    """
+    For this solution, we start from the mode nearest the mean, then guess toward the mean in a hill-climber fashion
+    """
     mean = total / number_of_values
     candidate_positions = [position for position, count in positions.items() if count == highest_count]
     optimal_position = min(candidate_positions, key=lambda position: abs(position - mean))
